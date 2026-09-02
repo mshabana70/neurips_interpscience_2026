@@ -45,7 +45,6 @@ experiments/
 results/
   <experiment>/<model>/     Aggregate reports used by the paper
   public_labels/            Per-example conditions and labels, without text
-paper/workshop_2026/        Anonymous LaTeX source, figures, and figure builder
 scripts/                    Reproduction, export, and artifact-check entry points
 src/jbct/                   Shared model, direction, intervention, and judge code
 test/                       Unit tests for the experiment-critical implementation
