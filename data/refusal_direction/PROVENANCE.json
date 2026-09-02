@@ -1,0 +1,26 @@
+{
+  "source": "Arditi et al. 2024 refusal_direction splits, via algoverse/Refusal-Lens dataset/refusal_direction_dataset/splits",
+  "note": "harmless splits truncated to keep the repo lean; first-N order preserved so reconciliation against prior Refusal-Lens numbers is exact for n<=512",
+  "splits": {
+    "harmful_train": {
+      "n": 260,
+      "n_source": 260,
+      "selection": "all"
+    },
+    "harmful_val": {
+      "n": 39,
+      "n_source": 39,
+      "selection": "all"
+    },
+    "harmless_train": {
+      "n": 512,
+      "n_source": 18793,
+      "selection": "first 512 (matches old `[:n_samples]`)"
+    },
+    "harmless_val": {
+      "n": 512,
+      "n_source": 6264,
+      "selection": "first 512 (matches old `[:n_samples]`)"
+    }
+  }
+}

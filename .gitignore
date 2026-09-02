@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Local credentials and machine-specific configuration
+.env
+.env.*
+!.env.example
+
+# Generated paper files
+paper/workshop_2026/*.aux
+paper/workshop_2026/*.bbl
+paper/workshop_2026/*.blg
+paper/workshop_2026/*.log
+paper/workshop_2026/*.out
+paper/workshop_2026/*.pdf
+
+# Fresh experimental runs can contain harmful model completions. They are kept
+# local by default; only aggregate reports and label-only exports are public.
+reproduced/
+results/**/generations.json
+results/**/generations.json.gz
+results/**/*_generations.json
+results/**/*_generations.json.gz
+results/**/judged.json
+results/**/judged.json.gz
+results/**/directions.pt
+results/**/candidates.pt
+results/**/baseline.json
+results/**/baseline.json.gz
+results/**/anchor_*.json
+results/**/anchor_*.json.gz
+results/**/prompt_*.json
+results/**/prompt_*.json.gz
+results/**/sustained_*.json
+results/**/sustained_*.json.gz
+results/**/offlayer_*.json
+results/**/offlayer_*.json.gz
+results/**/zero*.json
+results/**/zero*.json.gz
+results/**/*__*.json
+results/**/*__*.json.gz
+results/paper_closure/**/scope/*.json.gz
+results/paper_closure/**/transplant/*.json.gz
+results/paper_closure/**/restoration/*.json.gz
+results/arditi_gap/**/generations/*.json.gz
+results/f1_categories/**/judge_sample*.json
+
+# RunPod bundles and logs
+output/
+*.tar.gz
+*.log

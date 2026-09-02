@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jbct"
+version = "0.0.1"
+description = "Jailbreak circuit tracing — model-agnostic core"
+requires-python = ">=3.12"
+dependencies = ["numpy"]
+
+[project.optional-dependencies]
+# steering/GPU is installed via a Blackwell cu128 torch (Task 4); pins finalized there.
+# `hf_transfer`: RunPod's PyTorch images export HF_HUB_ENABLE_HF_TRANSFER=1 globally, but ship
+# the package only in the system Python — without it in OUR venv, every HF download raises.
+# transformers is capped at 4.57.3 by the vendored circuit-tracer (H4). Verified 2026-07-28
+# to be numerically transparent: H1 separations reproduce BIT-IDENTICALLY across all 34 Gemma
+# layers vs 5.14.1. See docs/reorg/2026-07-28-transformers-downgrade-for-h4.md.
+steering = ["torch>=2.7", "transformers>=4.56.0,<=4.57.3", "accelerate", "safetensors", "einops", "nnsight>=0.6.1", "hf_transfer"]
+# H4/attribution. The tracer itself is the vendored submodule: `-e vendor/circuit-tracer`
+# (run `git submodule update --init --recursive` first). These are its hard constraints.
+circuit-tracer = ["transformer-lens>=3.2.1", "nnsight==0.6.1", "huggingface_hub<1.0.0"]
+# H2 judging. `litellm` covers every API backend (OpenRouter/Anthropic/OpenAI/Ollama);
+# the in-process vLLM backend is only needed when judging without network egress.
+judge = ["litellm>=1.40"]
+# Figures. Matplotlib only — PCA is `torch.linalg.svd` rather than scikit-learn, so there is
+# no seed to record and no extra dependency to pin.
+plots = ["matplotlib>=3.8"]
+dev = ["pytest>=7", "ruff>=0.5", "matplotlib>=3.8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+pythonpath = ["."]
+markers = ["gpu: requires a CUDA GPU (deselected by default in CI)"]
+addopts = "-m 'not gpu'"
+
+[tool.ruff]
+src = ["src"]
+line-length = 100

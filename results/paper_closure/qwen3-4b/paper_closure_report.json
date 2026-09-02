@@ -1,0 +1,670 @@
+{
+  "model": "qwen3-4b",
+  "causal_site": [
+    18,
+    -1
+  ],
+  "off_site": [
+    33,
+    -5
+  ],
+  "judged_source": "private full-generation archive; public labels are in results/h2/qwen3-4b/judgments.json",
+  "projection_source": "results/f1_geometry/qwen3-4b/projections.json.gz",
+  "profile_classes": {
+    "authoritative_tone": {
+      "n_attack": 13,
+      "n_control_refuse": 37
+    },
+    "fiction": {
+      "n_attack": 47,
+      "n_control_refuse": 50
+    },
+    "narrative_sandwich": {
+      "n_attack": 18,
+      "n_control_refuse": 42
+    },
+    "refusal_suppression_long": {
+      "n_attack": 48,
+      "n_control_refuse": 50
+    }
+  },
+  "excluded_profile_class": "prefill (assistant-prefix timing is not prompt-position comparable)",
+  "max_new_tokens": 1024,
+  "judge_model": "openrouter/anthropic/claude-haiku-4.5",
+  "seed": 0,
+  "env": {
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-111-generic-x86_64-with-glibc2.39",
+    "torch": "2.13.0+cu130",
+    "transformers": "4.57.3",
+    "transformer_lens": null,
+    "nnsight": "0.6.1",
+    "huggingface_hub": "0.36.2",
+    "cuda": "13.0",
+    "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition MIG 2g.48gb"
+  },
+  "arms": {
+    "scope": {
+      "anchor_real": {
+        "n": 350,
+        "comply": 0.0686,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "anchor_sham": {
+        "n": 350,
+        "comply": 0.0686,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "baseline": {
+        "n": 350,
+        "comply": 0.0629,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "offlayer_real": {
+        "n": 350,
+        "comply": 0.0657,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "offlayer_sham": {
+        "n": 350,
+        "comply": 0.0743,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "prompt_real": {
+        "n": 350,
+        "comply": 0.1229,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "prompt_sham": {
+        "n": 350,
+        "comply": 0.0771,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "sustained_real": {
+        "n": 350,
+        "comply": 0.3029,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "sustained_sham": {
+        "n": 350,
+        "comply": 0.08,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      }
+    },
+    "transplant": {
+      "authoritative_tone__attack": {
+        "n": 100,
+        "comply": 0.04,
+        "incoherent": 0,
+        "hit_token_cap": 2
+      },
+      "authoritative_tone__attack_sham": {
+        "n": 100,
+        "comply": 0.06,
+        "incoherent": 0,
+        "hit_token_cap": 4
+      },
+      "authoritative_tone__null": {
+        "n": 100,
+        "comply": 0.05,
+        "incoherent": 0,
+        "hit_token_cap": 2
+      },
+      "baseline": {
+        "n": 100,
+        "comply": 0.08,
+        "incoherent": 0,
+        "hit_token_cap": 5
+      },
+      "fiction__attack": {
+        "n": 100,
+        "comply": 0.14,
+        "incoherent": 0,
+        "hit_token_cap": 7
+      },
+      "fiction__attack_sham": {
+        "n": 100,
+        "comply": 0.05,
+        "incoherent": 0,
+        "hit_token_cap": 1
+      },
+      "fiction__null": {
+        "n": 100,
+        "comply": 0.14,
+        "incoherent": 0,
+        "hit_token_cap": 5
+      },
+      "narrative_sandwich__attack": {
+        "n": 100,
+        "comply": 0.11,
+        "incoherent": 0,
+        "hit_token_cap": 4
+      },
+      "narrative_sandwich__attack_sham": {
+        "n": 100,
+        "comply": 0.04,
+        "incoherent": 0,
+        "hit_token_cap": 2
+      },
+      "narrative_sandwich__null": {
+        "n": 100,
+        "comply": 0.12,
+        "incoherent": 0,
+        "hit_token_cap": 4
+      },
+      "refusal_suppression_long__attack": {
+        "n": 100,
+        "comply": 0.11,
+        "incoherent": 0,
+        "hit_token_cap": 7
+      },
+      "refusal_suppression_long__attack_sham": {
+        "n": 100,
+        "comply": 0.02,
+        "incoherent": 0,
+        "hit_token_cap": 3
+      },
+      "refusal_suppression_long__null": {
+        "n": 100,
+        "comply": 0.1,
+        "incoherent": 0,
+        "hit_token_cap": 4
+      },
+      "zero": {
+        "n": 100,
+        "comply": 0.19,
+        "incoherent": 0,
+        "hit_token_cap": 6
+      },
+      "zero_sham": {
+        "n": 100,
+        "comply": 0.05,
+        "incoherent": 0,
+        "hit_token_cap": 2
+      }
+    },
+    "restoration": {
+      "authoritative_tone__attack_null": {
+        "n": 13,
+        "comply": 0.9231,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "authoritative_tone__baseline": {
+        "n": 13,
+        "comply": 1.0,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "authoritative_tone__harmful": {
+        "n": 13,
+        "comply": 0.9231,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "authoritative_tone__harmful_sham": {
+        "n": 13,
+        "comply": 0.8462,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "fiction__attack_null": {
+        "n": 47,
+        "comply": 1.0,
+        "incoherent": 0,
+        "hit_token_cap": 22
+      },
+      "fiction__baseline": {
+        "n": 47,
+        "comply": 0.9787,
+        "incoherent": 0,
+        "hit_token_cap": 26
+      },
+      "fiction__harmful": {
+        "n": 47,
+        "comply": 0.9574,
+        "incoherent": 0,
+        "hit_token_cap": 21
+      },
+      "fiction__harmful_sham": {
+        "n": 47,
+        "comply": 0.9362,
+        "incoherent": 0,
+        "hit_token_cap": 18
+      },
+      "narrative_sandwich__attack_null": {
+        "n": 18,
+        "comply": 0.8889,
+        "incoherent": 0,
+        "hit_token_cap": 3
+      },
+      "narrative_sandwich__baseline": {
+        "n": 18,
+        "comply": 0.9444,
+        "incoherent": 0,
+        "hit_token_cap": 5
+      },
+      "narrative_sandwich__harmful": {
+        "n": 18,
+        "comply": 0.7778,
+        "incoherent": 0,
+        "hit_token_cap": 1
+      },
+      "narrative_sandwich__harmful_sham": {
+        "n": 18,
+        "comply": 0.6667,
+        "incoherent": 0,
+        "hit_token_cap": 1
+      },
+      "refusal_suppression_long__attack_null": {
+        "n": 48,
+        "comply": 1.0,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "refusal_suppression_long__baseline": {
+        "n": 48,
+        "comply": 1.0,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "refusal_suppression_long__harmful": {
+        "n": 48,
+        "comply": 1.0,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      },
+      "refusal_suppression_long__harmful_sham": {
+        "n": 48,
+        "comply": 1.0,
+        "incoherent": 0,
+        "hit_token_cap": 0
+      }
+    }
+  },
+  "comparisons": {
+    "scope": {
+      "anchor_real_vs_baseline": {
+        "n": 350,
+        "real_comply": 0.0686,
+        "reference_comply": 0.0629,
+        "delta": 0.0057,
+        "ci95_bootstrap": [
+          -0.0114,
+          0.0229
+        ],
+        "discordant_real_only": 6,
+        "discordant_reference_only": 4,
+        "p_exact": 0.75390625,
+        "p_holm": 1.0
+      },
+      "anchor_real_vs_anchor_sham": {
+        "n": 350,
+        "real_comply": 0.0686,
+        "reference_comply": 0.0686,
+        "delta": 0.0,
+        "ci95_bootstrap": [
+          -0.0143,
+          0.0171
+        ],
+        "discordant_real_only": 4,
+        "discordant_reference_only": 4,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      },
+      "prompt_real_vs_baseline": {
+        "n": 350,
+        "real_comply": 0.1229,
+        "reference_comply": 0.0629,
+        "delta": 0.06,
+        "ci95_bootstrap": [
+          0.0257,
+          0.0971
+        ],
+        "discordant_real_only": 31,
+        "discordant_reference_only": 10,
+        "p_exact": 0.0014504910141113214,
+        "p_holm": 0.01015343709877925
+      },
+      "prompt_real_vs_prompt_sham": {
+        "n": 350,
+        "real_comply": 0.1229,
+        "reference_comply": 0.0771,
+        "delta": 0.0457,
+        "ci95_bootstrap": [
+          0.0114,
+          0.08
+        ],
+        "discordant_real_only": 28,
+        "discordant_reference_only": 12,
+        "p_exact": 0.01658900337497471,
+        "p_holm": 0.08294501687487355
+      },
+      "sustained_real_vs_baseline": {
+        "n": 350,
+        "real_comply": 0.3029,
+        "reference_comply": 0.0629,
+        "delta": 0.24,
+        "ci95_bootstrap": [
+          0.1914,
+          0.2886
+        ],
+        "discordant_real_only": 91,
+        "discordant_reference_only": 7,
+        "p_exact": 9.440274241692034e-20,
+        "p_holm": 9.440274241692034e-19
+      },
+      "sustained_real_vs_sustained_sham": {
+        "n": 350,
+        "real_comply": 0.3029,
+        "reference_comply": 0.08,
+        "delta": 0.2229,
+        "ci95_bootstrap": [
+          0.1743,
+          0.2714
+        ],
+        "discordant_real_only": 85,
+        "discordant_reference_only": 7,
+        "p_exact": 3.8474091166397966e-18,
+        "p_holm": 3.462668204975817e-17
+      },
+      "prompt_real_vs_anchor_real": {
+        "n": 350,
+        "real_comply": 0.1229,
+        "reference_comply": 0.0686,
+        "delta": 0.0543,
+        "ci95_bootstrap": [
+          0.02,
+          0.0914
+        ],
+        "discordant_real_only": 30,
+        "discordant_reference_only": 11,
+        "p_exact": 0.00432400493446039,
+        "p_holm": 0.025944029606762342
+      },
+      "sustained_real_vs_prompt_real": {
+        "n": 350,
+        "real_comply": 0.3029,
+        "reference_comply": 0.1229,
+        "delta": 0.18,
+        "ci95_bootstrap": [
+          0.1343,
+          0.2286
+        ],
+        "discordant_real_only": 73,
+        "discordant_reference_only": 10,
+        "p_exact": 5.800664942039543e-13,
+        "p_holm": 4.6405319536316344e-12
+      },
+      "offlayer_real_vs_baseline": {
+        "n": 350,
+        "real_comply": 0.0657,
+        "reference_comply": 0.0629,
+        "delta": 0.0029,
+        "ci95_bootstrap": [
+          -0.0057,
+          0.0143
+        ],
+        "discordant_real_only": 2,
+        "discordant_reference_only": 1,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      },
+      "offlayer_real_vs_offlayer_sham": {
+        "n": 350,
+        "real_comply": 0.0657,
+        "reference_comply": 0.0743,
+        "delta": -0.0086,
+        "ci95_bootstrap": [
+          -0.0229,
+          0.0057
+        ],
+        "discordant_real_only": 2,
+        "discordant_reference_only": 5,
+        "p_exact": 0.453125,
+        "p_holm": 1.0
+      }
+    },
+    "transplant_vs_null": {
+      "authoritative_tone": {
+        "n": 100,
+        "real_comply": 0.04,
+        "reference_comply": 0.05,
+        "delta": -0.01,
+        "ci95_bootstrap": [
+          -0.04,
+          0.02
+        ],
+        "discordant_real_only": 1,
+        "discordant_reference_only": 2,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      },
+      "fiction": {
+        "n": 100,
+        "real_comply": 0.14,
+        "reference_comply": 0.14,
+        "delta": 0.0,
+        "ci95_bootstrap": [
+          -0.06,
+          0.06
+        ],
+        "discordant_real_only": 5,
+        "discordant_reference_only": 5,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      },
+      "narrative_sandwich": {
+        "n": 100,
+        "real_comply": 0.11,
+        "reference_comply": 0.12,
+        "delta": -0.01,
+        "ci95_bootstrap": [
+          -0.05,
+          0.03
+        ],
+        "discordant_real_only": 2,
+        "discordant_reference_only": 3,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      },
+      "refusal_suppression_long": {
+        "n": 100,
+        "real_comply": 0.11,
+        "reference_comply": 0.1,
+        "delta": 0.01,
+        "ci95_bootstrap": [
+          -0.04,
+          0.06
+        ],
+        "discordant_real_only": 4,
+        "discordant_reference_only": 3,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      }
+    },
+    "transplant_vs_sham": {
+      "authoritative_tone": {
+        "n": 100,
+        "real_comply": 0.04,
+        "reference_comply": 0.06,
+        "delta": -0.02,
+        "ci95_bootstrap": [
+          -0.07,
+          0.03
+        ],
+        "discordant_real_only": 2,
+        "discordant_reference_only": 4,
+        "p_exact": 0.6875,
+        "p_holm": 0.6875
+      },
+      "fiction": {
+        "n": 100,
+        "real_comply": 0.14,
+        "reference_comply": 0.05,
+        "delta": 0.09,
+        "ci95_bootstrap": [
+          0.03,
+          0.16
+        ],
+        "discordant_real_only": 11,
+        "discordant_reference_only": 2,
+        "p_exact": 0.0224609375,
+        "p_holm": 0.0673828125
+      },
+      "narrative_sandwich": {
+        "n": 100,
+        "real_comply": 0.11,
+        "reference_comply": 0.04,
+        "delta": 0.07,
+        "ci95_bootstrap": [
+          0.01,
+          0.14
+        ],
+        "discordant_real_only": 9,
+        "discordant_reference_only": 2,
+        "p_exact": 0.0654296875,
+        "p_holm": 0.130859375
+      },
+      "refusal_suppression_long": {
+        "n": 100,
+        "real_comply": 0.11,
+        "reference_comply": 0.02,
+        "delta": 0.09,
+        "ci95_bootstrap": [
+          0.04,
+          0.15
+        ],
+        "discordant_real_only": 9,
+        "discordant_reference_only": 0,
+        "p_exact": 0.00390625,
+        "p_holm": 0.015625
+      }
+    },
+    "restoration_vs_attack_null": {
+      "authoritative_tone": {
+        "n": 13,
+        "real_comply": 0.9231,
+        "reference_comply": 0.9231,
+        "delta": 0.0,
+        "ci95_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "discordant_real_only": 0,
+        "discordant_reference_only": 0,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      },
+      "fiction": {
+        "n": 47,
+        "real_comply": 0.9574,
+        "reference_comply": 1.0,
+        "delta": -0.0426,
+        "ci95_bootstrap": [
+          -0.1064,
+          0.0
+        ],
+        "discordant_real_only": 0,
+        "discordant_reference_only": 2,
+        "p_exact": 0.5,
+        "p_holm": 1.0
+      },
+      "narrative_sandwich": {
+        "n": 18,
+        "real_comply": 0.7778,
+        "reference_comply": 0.8889,
+        "delta": -0.1111,
+        "ci95_bootstrap": [
+          -0.3333,
+          0.1111
+        ],
+        "discordant_real_only": 1,
+        "discordant_reference_only": 3,
+        "p_exact": 0.625,
+        "p_holm": 1.0
+      },
+      "refusal_suppression_long": {
+        "n": 48,
+        "real_comply": 1.0,
+        "reference_comply": 1.0,
+        "delta": 0.0,
+        "ci95_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "discordant_real_only": 0,
+        "discordant_reference_only": 0,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      }
+    },
+    "restoration_vs_sham": {
+      "authoritative_tone": {
+        "n": 13,
+        "real_comply": 0.9231,
+        "reference_comply": 0.8462,
+        "delta": 0.0769,
+        "ci95_bootstrap": [
+          -0.1538,
+          0.3077
+        ],
+        "discordant_real_only": 2,
+        "discordant_reference_only": 1,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      },
+      "fiction": {
+        "n": 47,
+        "real_comply": 0.9574,
+        "reference_comply": 0.9362,
+        "delta": 0.0213,
+        "ci95_bootstrap": [
+          -0.0638,
+          0.1064
+        ],
+        "discordant_real_only": 3,
+        "discordant_reference_only": 2,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      },
+      "narrative_sandwich": {
+        "n": 18,
+        "real_comply": 0.7778,
+        "reference_comply": 0.6667,
+        "delta": 0.1111,
+        "ci95_bootstrap": [
+          -0.1667,
+          0.3889
+        ],
+        "discordant_real_only": 4,
+        "discordant_reference_only": 2,
+        "p_exact": 0.6875,
+        "p_holm": 1.0
+      },
+      "refusal_suppression_long": {
+        "n": 48,
+        "real_comply": 1.0,
+        "reference_comply": 1.0,
+        "delta": 0.0,
+        "ci95_bootstrap": [
+          0.0,
+          0.0
+        ],
+        "discordant_real_only": 0,
+        "discordant_reference_only": 0,
+        "p_exact": 1.0,
+        "p_holm": 1.0
+      }
+    }
+  }
+}
